@@ -784,9 +784,11 @@ def main() -> None:
         # 尝试不同可能的会话目录
         session_dirs = [
             os.path.join(home_dir, ".telegram-bot-api"),  # 标准目录
-            os.path.join(home_dir, ".cache", "python-telegram-bot"),  # Linux/Mac缓存目录
-            os.path.join(os.environ.get("LOCALAPPDATA", ""), "python-telegram-bot")  # Windows应用数据目录
+            os.path.join(os.getenv('APPDATA'), "telegram-bot-api") if platform.system() == "Windows" else None  # Windows目录
         ]
+        
+        # 过滤掉None值
+        session_dirs = [d for d in session_dirs if d]
         
         for session_dir in session_dirs:
             if os.path.exists(session_dir):
@@ -960,7 +962,7 @@ def main() -> None:
         # 添加定时任务
         job_queue = application.job_queue
         # 每6小时同步一次群组成员
-        job_queue.run_repeating(sync_group_members, interval=21600)
+        job_queue.run_repeating(callback=sync_group_members, interval=21600, first=10)
         
         # 添加数据库备份定时任务
         from coser_bot.utils.backup import schedule_backup
