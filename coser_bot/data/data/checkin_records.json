@@ -1,0 +1,326 @@
+[
+  {
+    "record_id": 1,
+    "user_id": 6704273308,
+    "checkin_date": "2025-03-03",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-03T06:11:21.199690",
+    "is_makeup": false
+  },
+  {
+    "record_id": 2,
+    "user_id": 6662014776,
+    "checkin_date": "2025-03-03",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-03T06:15:12.255943",
+    "is_makeup": false
+  },
+  {
+    "record_id": 3,
+    "user_id": 7445050322,
+    "checkin_date": "2025-03-03",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-03T06:17:36.137382",
+    "is_makeup": false
+  },
+  {
+    "record_id": 4,
+    "user_id": 6731180097,
+    "checkin_date": "2025-03-03",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-03T12:22:47.273124",
+    "is_makeup": false
+  },
+  {
+    "record_id": 5,
+    "user_id": 6179330663,
+    "checkin_date": "2025-03-03",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-03T18:48:37.361237",
+    "is_makeup": false
+  },
+  {
+    "record_id": 6,
+    "user_id": 5991043676,
+    "checkin_date": "2025-03-03",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-03T19:04:06.284402",
+    "is_makeup": false
+  },
+  {
+    "record_id": 7,
+    "user_id": 6662014776,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T00:10:11.712692",
+    "is_makeup": false
+  },
+  {
+    "record_id": 8,
+    "user_id": 6704273308,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T00:48:13.262666",
+    "is_makeup": false
+  },
+  {
+    "record_id": 9,
+    "user_id": 6955162335,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T03:13:26.511755",
+    "is_makeup": false
+  },
+  {
+    "record_id": 10,
+    "user_id": 5820595482,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T03:39:04.044711",
+    "is_makeup": false
+  },
+  {
+    "record_id": 11,
+    "user_id": 5804180985,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T04:25:37.981341",
+    "is_makeup": false
+  },
+  {
+    "record_id": 12,
+    "user_id": 5465619539,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T10:03:03.173159",
+    "is_makeup": false
+  },
+  {
+    "record_id": 13,
+    "user_id": 7637865854,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T20:33:08.316649",
+    "is_makeup": false
+  },
+  {
+    "record_id": 14,
+    "user_id": 1087968824,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T20:47:14.824483",
+    "is_makeup": false
+  },
+  {
+    "record_id": 15,
+    "user_id": 6018620655,
+    "checkin_date": "2025-03-04",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-04T20:50:50.054414",
+    "is_makeup": false
+  },
+  {
+    "record_id": 16,
+    "user_id": 7637865854,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T00:03:28.184722",
+    "is_makeup": false
+  },
+  {
+    "record_id": 17,
+    "user_id": 6704273308,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T07:27:16.853803",
+    "is_makeup": false
+  },
+  {
+    "record_id": 18,
+    "user_id": 6371366570,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T07:28:24.918508",
+    "is_makeup": false
+  },
+  {
+    "record_id": 19,
+    "user_id": 5820595482,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T07:28:26.011666",
+    "is_makeup": false
+  },
+  {
+    "record_id": 20,
+    "user_id": 7228907564,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T07:30:57.538439",
+    "is_makeup": false
+  },
+  {
+    "record_id": 21,
+    "user_id": 6731180097,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T08:16:36.662346",
+    "is_makeup": false
+  },
+  {
+    "record_id": 22,
+    "user_id": 6018620655,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T08:41:41.801642",
+    "is_makeup": false
+  },
+  {
+    "record_id": 23,
+    "user_id": 6662014776,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T09:03:13.407441",
+    "is_makeup": false
+  },
+  {
+    "record_id": 24,
+    "user_id": 5465619539,
+    "checkin_date": "2025-03-05",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-05T10:05:06.414735",
+    "is_makeup": false
+  },
+  {
+    "record_id": 25,
+    "user_id": 5820595482,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T00:02:21.308236",
+    "is_makeup": false
+  },
+  {
+    "record_id": 26,
+    "user_id": 7228907564,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T00:06:07.741533",
+    "is_makeup": false
+  },
+  {
+    "record_id": 27,
+    "user_id": 6018620655,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T00:13:54.738975",
+    "is_makeup": false
+  },
+  {
+    "record_id": 28,
+    "user_id": 7239529866,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T01:00:47.060864",
+    "is_makeup": false
+  },
+  {
+    "record_id": 29,
+    "user_id": 5991043676,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T01:39:45.200024",
+    "is_makeup": false
+  },
+  {
+    "record_id": 30,
+    "user_id": 7637865854,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T01:40:03.354678",
+    "is_makeup": false
+  },
+  {
+    "record_id": 31,
+    "user_id": 6146836413,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T06:35:59.869635",
+    "is_makeup": false
+  },
+  {
+    "record_id": 32,
+    "user_id": 6606934754,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T06:39:39.089231",
+    "is_makeup": false
+  },
+  {
+    "record_id": 33,
+    "user_id": 756489328,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T07:02:44.130061",
+    "is_makeup": false
+  },
+  {
+    "record_id": 34,
+    "user_id": 6662014776,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T08:19:03.720277",
+    "is_makeup": false
+  },
+  {
+    "record_id": 35,
+    "user_id": 5078103791,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T09:17:58.462243",
+    "is_makeup": false
+  },
+  {
+    "record_id": 36,
+    "user_id": 5465619539,
+    "checkin_date": "2025-03-06",
+    "points_earned": 10,
+    "streak_bonus": 0,
+    "created_at": "2025-03-06T11:10:17.600192",
+    "is_makeup": false
+  }
+]

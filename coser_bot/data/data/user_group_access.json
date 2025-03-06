@@ -1,0 +1,254 @@
+[
+  {
+    "access_id": 1,
+    "user_id": 744505032,
+    "group_id": 1,
+    "start_date": "2024-01-01T00:00:00",
+    "end_date": "2024-12-31T23:59:59"
+  },
+  {
+    "access_id": 2,
+    "user_id": 744505032,
+    "group_id": 2,
+    "start_date": "2024-01-01T00:00:00",
+    "end_date": null
+  },
+  {
+    "access_id": 3,
+    "user_id": 6662014776,
+    "group_id": 1,
+    "start_date": "2024-01-01T00:00:00",
+    "end_date": "2024-12-31T23:59:59"
+  },
+  {
+    "access_id": 4,
+    "user_id": 6662014776,
+    "group_id": 2,
+    "start_date": "2024-01-01T00:00:00",
+    "end_date": null
+  },
+  {
+    "access_id": 5,
+    "user_id": 6606934754,
+    "group_id": 1,
+    "start_date": "2025-03-03T17:36:03.571673",
+    "end_date": "2024-12-31T23:59:59"
+  },
+  {
+    "access_id": 6,
+    "user_id": 6606934754,
+    "group_id": 2,
+    "start_date": "2025-03-03T17:36:03.574260",
+    "end_date": null
+  },
+  {
+    "access_id": 7,
+    "user_id": 5465619539,
+    "group_id": 1,
+    "start_date": "2025-03-04T10:03:56.570865",
+    "end_date": null
+  },
+  {
+    "access_id": 8,
+    "user_id": 6704273308,
+    "group_id": 1,
+    "start_date": "2025-03-04T10:04:46.565542",
+    "end_date": null
+  },
+  {
+    "access_id": 9,
+    "user_id": 1827972853,
+    "group_id": 1,
+    "start_date": "2025-03-04T12:25:42.797820",
+    "end_date": null
+  },
+  {
+    "access_id": 10,
+    "user_id": 6704273308,
+    "group_id": 2,
+    "start_date": "2025-03-04T12:29:48.874645",
+    "end_date": null
+  },
+  {
+    "access_id": 11,
+    "user_id": 6704273308,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-04T20:48:05.558854",
+    "end_date": null
+  },
+  {
+    "access_id": 12,
+    "user_id": 777000,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-04T20:49:49.072538",
+    "end_date": null
+  },
+  {
+    "access_id": 13,
+    "user_id": 6662014776,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-04T20:50:53.832978",
+    "end_date": null
+  },
+  {
+    "access_id": 14,
+    "user_id": 5820595482,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-04T22:58:14.611151",
+    "end_date": null
+  },
+  {
+    "access_id": 15,
+    "user_id": 5991043676,
+    "group_id": 1,
+    "start_date": "2025-03-04T23:35:12.717596",
+    "end_date": null
+  },
+  {
+    "access_id": 16,
+    "user_id": 5991043676,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-04T23:35:13.901802",
+    "end_date": null
+  },
+  {
+    "access_id": 17,
+    "user_id": 6731180097,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-05T20:11:30.642046",
+    "end_date": null
+  },
+  {
+    "access_id": 18,
+    "user_id": 6606934754,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-05T20:27:36.885095",
+    "end_date": null
+  },
+  {
+    "access_id": 19,
+    "user_id": 6606934754,
+    "group_id": -1002317028637,
+    "start_date": "2025-03-05T20:27:37.442388",
+    "end_date": null
+  },
+  {
+    "access_id": 20,
+    "user_id": 7445050322,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-05T20:39:08.589474",
+    "end_date": null
+  },
+  {
+    "access_id": 21,
+    "user_id": 7445050322,
+    "group_id": -1002317028637,
+    "start_date": "2025-03-05T20:39:09.116538",
+    "end_date": null
+  },
+  {
+    "access_id": 22,
+    "user_id": 7239529866,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-06T01:01:15.578703",
+    "end_date": null
+  },
+  {
+    "access_id": 23,
+    "user_id": 5991043676,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-06T02:52:30.088020",
+    "end_date": null
+  },
+  {
+    "access_id": 24,
+    "user_id": 7637865854,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-06T03:00:17.248384",
+    "end_date": null
+  },
+  {
+    "access_id": 25,
+    "user_id": 6704273308,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-06T03:00:17.277152",
+    "end_date": null
+  },
+  {
+    "access_id": 26,
+    "user_id": 6662014776,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-06T03:00:17.293633",
+    "end_date": null
+  },
+  {
+    "access_id": 27,
+    "user_id": 7637865854,
+    "group_id": -1002317028637,
+    "start_date": "2025-03-06T03:00:17.813744",
+    "end_date": null
+  },
+  {
+    "access_id": 28,
+    "user_id": 6704273308,
+    "group_id": -1002317028637,
+    "start_date": "2025-03-06T03:00:17.826633",
+    "end_date": null
+  },
+  {
+    "access_id": 29,
+    "user_id": 7637865854,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-06T03:00:18.366794",
+    "end_date": null
+  },
+  {
+    "access_id": 30,
+    "user_id": 6662014776,
+    "group_id": -1002317028637,
+    "start_date": "2025-03-06T06:27:23.018948",
+    "end_date": null
+  },
+  {
+    "access_id": 31,
+    "user_id": 6371366570,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-06T06:33:34.634056",
+    "end_date": null
+  },
+  {
+    "access_id": 32,
+    "user_id": 6371366570,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-06T07:23:55.139085",
+    "end_date": null
+  },
+  {
+    "access_id": 33,
+    "user_id": 6371366570,
+    "group_id": -1002317028637,
+    "start_date": "2025-03-06T07:24:00.619386",
+    "end_date": null
+  },
+  {
+    "access_id": 34,
+    "user_id": 6146836413,
+    "group_id": -1002295555543,
+    "start_date": "2025-03-06T07:32:51.485658",
+    "end_date": null
+  },
+  {
+    "access_id": 35,
+    "user_id": 6146836413,
+    "group_id": -1002317028637,
+    "start_date": "2025-03-06T07:32:51.498848",
+    "end_date": null
+  },
+  {
+    "access_id": 36,
+    "user_id": 5648198881,
+    "group_id": -1002420075737,
+    "start_date": "2025-03-06T17:17:01.207535",
+    "end_date": null
+  }
+]
