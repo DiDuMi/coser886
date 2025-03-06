@@ -1,0 +1,22 @@
+[
+  {
+    "group_id": 1,
+    "group_name": "管理与日志群",
+    "chat_id": -1002295555543,
+    "is_paid": false,
+    "required_points": 0,
+    "access_days": 0,
+    "is_topics_group": false,
+    "created_at": "2025-03-03T16:10:35.787117"
+  },
+  {
+    "group_id": 2,
+    "group_name": "日志管理免费",
+    "chat_id": -1002317028637,
+    "is_paid": false,
+    "required_points": 0,
+    "access_days": 0,
+    "is_topics_group": false,
+    "created_at": "2025-03-03T16:12:45.566947"
+  }
+]
