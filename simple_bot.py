@@ -30,7 +30,6 @@ from telegram.ext import (
     Application, CommandHandler, MessageHandler, 
     filters, ContextTypes, CallbackQueryHandler
 )
-from telegram.request import HTTPXRequest
 
 # 添加项目根目录到系统路径
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -51,7 +50,7 @@ from coser_bot.database.models import (
 )
 from coser_bot.handlers.checkin import get_checkin_handlers
 from coser_bot.handlers.points import get_points_handlers, get_user_points_info, format_number
-from coser_bot.handlers.email import get_email_handlers, bind_email_command
+from coser_bot.handlers.email import get_email_handlers
 from coser_bot.handlers.recover import get_recovery_handlers
 from coser_bot.handlers.admin import get_admin_handlers, ADMIN_IDS
 from coser_bot.handlers.leaderboard import get_leaderboard_handlers, handle_leaderboard_callback
@@ -106,77 +105,57 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     name = user.first_name
     
     # 构建欢迎消息
-    if is_new_user:
-        welcome_text = f"""
-<b>🌟 欢迎加入 Coser 社群！</b>
+    welcome_text = f"""
+{'🎉 欢迎加入 Coser 社群！' if is_new_user else '👋 欢迎回来！'} 
 
-亲爱的 <b>{name}</b>，很高兴认识你！
-我是你的专属社群助手，让我们一起开启精彩社群之旅吧！
+亲爱的 {name}，{'很高兴认识你！' if is_new_user else '希望你今天过得愉快！'}
+我是 Coser 社群的机器人助手，让我来帮你了解社群的功能。
 
-<b>✨ 新手入门</b>
-• 发送 /checkin 完成首次签到获得双倍积分
-• 使用 /bindemail 绑定邮箱获得50积分奖励
-• 查看 /rank 了解社群活跃度排名
+{'📱 新手指南' if is_new_user else '📱 常用功能'}
+{'/checkin - 每日签到领取积分' + ('（新手首签送双倍积分！）' if is_new_user else '')}
+/points - 查看当前积分余额
+/rank - 查看排行榜
+/gift - 赠送积分给好友
+/myinfo - 查看个人详细信息
 
-<b>💡 实用小贴士</b>
-• 每日签到可累积连续签到奖励
-• 绑定邮箱可保障账号安全
-• 使用 /gift 可与好友分享积分
+{'🎁 新手礼包' if is_new_user else '🔐 账号管理'}
+{'完成以下任务即可获得丰厚奖励：' if is_new_user else '保护您的账号安全：'}
+{'1. 发送 /checkin 完成首次签到' if is_new_user else '• /bindemail - 绑定邮箱账号'}
+{'2. 使用 /bindemail 绑定邮箱（+50积分）' if is_new_user else '• /recover - 账号权益恢复'}
+{'3. 尝试使用 /gift 赠送积分给好友' if is_new_user else ''}
 
-<b>🚀 立即开始</b>
-点击下方按钮体验社群功能，或发送 /checkin 立即获取积分！
-"""
-    else:
-        welcome_text = f"""
-<b>👋 欢迎回来，{name}！</b>
+💎 积分规则
+• 每日签到：+{config.DAILY_CHECKIN_POINTS} 积分
+• 连续签到7天：额外 +{config.WEEKLY_STREAK_POINTS} 积分
+• 连续签到30天：额外 +{config.MONTHLY_STREAK_POINTS} 积分
+• 绑定邮箱：+50 积分
+• 邀请新用户：+20 积分/人
 
-很高兴再次见到你！以下是你可能感兴趣的功能：
+{'💡 小贴士' if is_new_user else '💫 进阶技巧'}
+• {'绑定邮箱可在账号被封禁时恢复权益' if is_new_user else '定期查看 /rank 了解自己的排名'}
+• {'连续签到可获得额外奖励' if is_new_user else '保持签到连续性获得更多奖励'}
+• {'积分可以自由赠送给其他用户' if is_new_user else '使用 /gift 与好友分享积分'}
+• {'付费群组到期前会收到续费提醒' if is_new_user else '留意群组到期提醒及时续费'}
 
-<b>📊 个人状态</b>
-• 当前积分: {db_user.points}
-• 邮箱绑定: {'已绑定 ✅' if db_user.email and db_user.email_verified else '未绑定 ❌'}
-• 上次签到: {db_user.last_checkin.strftime('%Y-%m-%d') if db_user.last_checkin else '暂无记录'}
-
-<b>🔥 热门功能</b>
-• /checkin - 每日签到领取积分
-• /points - 查看当前积分详情
-• /rank - 查看社群排行榜
-
-<b>✨ 今日提示</b>
-{'别忘了今天签到哦！' if not db_user.last_checkin or db_user.last_checkin.date() != datetime.now().date() else '今天已完成签到，明天再来吧！'}
+{'🌟 开启你的社群之旅' if is_new_user else '🌟 祝你在社群玩得开心'}
+{'现在就发送 /checkin 开始你的第一次签到吧！' if is_new_user else '记得每天签到领取积分哦！'}
 """
 
-    # 创建快捷操作按钮 - 根据新旧用户状态提供不同的按钮布局
-    if is_new_user:
-        keyboard = [
-            [
-                InlineKeyboardButton("✅ 立即签到", callback_data="checkin"),
-                InlineKeyboardButton("📧 绑定邮箱", callback_data="bindemail")
-            ],
-            [
-                InlineKeyboardButton("📊 社群排行", callback_data="leaderboard_points"),
-                InlineKeyboardButton("❓ 新手指南", callback_data="help")
-            ],
-            [
-                InlineKeyboardButton("🎁 每日任务", callback_data="daily_tasks"),
-                InlineKeyboardButton("👤 个人中心", callback_data="myinfo")
-            ]
+    # 创建快捷操作按钮
+    keyboard = [
+        [
+            InlineKeyboardButton("📝 每日签到", callback_data="checkin"),
+            InlineKeyboardButton("💰 查看积分", callback_data="points")
+        ],
+        [
+            InlineKeyboardButton("🏆 排行榜", callback_data="leaderboard_points"),
+            InlineKeyboardButton("📧 绑定邮箱", callback_data="bindemail")
+        ],
+        [
+            InlineKeyboardButton("❓ 帮助指南", callback_data="help"),
+            InlineKeyboardButton("👤 个人信息", callback_data="myinfo")
         ]
-    else:
-        keyboard = [
-            [
-                InlineKeyboardButton("✅ 每日签到", callback_data="checkin"),
-                InlineKeyboardButton("💰 我的积分", callback_data="points")
-            ],
-            [
-                InlineKeyboardButton("🏆 社群排行", callback_data="leaderboard_points"),
-                InlineKeyboardButton("❓ 帮助指南", callback_data="help")
-            ],
-            [
-                InlineKeyboardButton("👥 邀请好友", callback_data="invite_friends"),
-                InlineKeyboardButton("👤 个人中心", callback_data="myinfo")
-            ]
-        ]
+    ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     # 只发送一条消息，带有按钮
@@ -216,29 +195,17 @@ def get_main_keyboard() -> InlineKeyboardMarkup:
 
 async def record_user_activity(user: User) -> None:
     """
-    记录用户活动，更新最后活动时间和登录天数
+    记录用户活动，更新最后活动时间
     
     Args:
         user: 用户对象
     """
     try:
-        current_time = datetime.now()
-        
-        # 如果用户之前没有活动记录，或者上次活动是在不同的日期
-        if not user.last_active or user.last_active.date() != current_time.date():
-            # 增加登录天数
-            user.login_days += 1
-            logger.info(f"用户 {user.username} (ID: {user.user_id}) 登录天数增加到 {user.login_days}")
-        
-        # 更新最后活动时间
-        user.last_active = current_time
-        
-        # 保存用户数据
+        user.last_active = datetime.now()
         storage = Storage()
         storage.save_user(user)
-        logger.debug(f"已更新用户 {user.username} (ID: {user.user_id}) 的活动记录，最后活动时间: {current_time}")
     except Exception as e:
-        logger.error(f"记录用户活动失败: {e}", exc_info=True)
+        logger.error(f"记录用户活动失败: {e}")
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """
@@ -655,26 +622,11 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
             # 模拟执行 /bindemail 命令
             await query.answer("正在准备邮箱绑定...")
             
-            # 从模块中导入bind_email_command函数
-            from coser_bot.handlers.email import bind_email_command
+            # 从handlers模块导入绑定邮箱函数
+            from coser_bot.handlers.email import start_email_binding
             
-            # 创建一个临时消息对象，使用回调查询消息的信息
-            class TempMessage:
-                def __init__(self, message):
-                    self.chat_id = message.chat_id
-                    self.message_id = message.message_id
-                    self.from_user = query.from_user
-                    self.chat = message.chat
-                
-                async def reply_text(self, text, **kwargs):
-                    return await query.message.reply_text(text, **kwargs)
-            
-            # 创建一个新的Update对象，使用临时消息
-            temp_message = TempMessage(query.message)
-            temp_update = Update(update_id=update.update_id, message=temp_message)
-            
-            # 调用bind_email_command函数
-            await bind_email_command(temp_update, context)
+            # 直接传递update对象，函数内部处理query
+            await start_email_binding(update, context)
         
         elif query.data == "points":
             # 查询积分
@@ -695,74 +647,6 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
         elif query.data.startswith("leaderboard_"):
             # 交给排行榜处理器处理
             await handle_leaderboard_callback(update, context)
-            
-        elif query.data == "daily_tasks":
-            # 显示每日任务
-            await query.answer("正在加载每日任务...")
-            
-            # 获取用户信息
-            storage = Storage()
-            user = storage.get_user(query.from_user.id)
-            
-            # 构建每日任务信息
-            has_checked_in = user.last_checkin and user.last_checkin.date() == datetime.now().date()
-            
-            tasks_text = f"""
-<b>✅ 每日任务中心</b>
-
-完成以下任务可获得积分奖励：
-
-1. 每日签到: {("已完成 ✓" if has_checked_in else "未完成 ✗")} [+10积分]
-2. 绑定邮箱: {("已完成 ✓" if user.email and user.email_verified else "未完成 ✗")} [+50积分]
-3. 邀请好友: 已邀请 {user.invited_users if hasattr(user, 'invited_users') else 0} 人 [每人+30积分]
-
-<b>🔄 每周任务</b>
-1. 连续签到7天: {f"进度 {user.checkin_streak if hasattr(user, 'checkin_streak') else 0}/7"} [+50积分]
-2. 累计登录30天: {f"进度 {user.login_days if hasattr(user, 'login_days') else 0}/30"} [+100积分]
-
-完成任务不仅可以获得积分，还能解锁更多社群特权！
-"""
-            await query.message.reply_text(
-                tasks_text,
-                parse_mode=ParseMode.HTML,
-                reply_markup=get_main_keyboard()
-            )
-            
-        # 注意: 积分商城功能已被移除，因为该功能尚未实现
-        # 相关的按钮和处理代码已删除
-            
-        elif query.data == "invite_friends":
-            # 邀请好友功能
-            await query.answer("此功能暂未实现")
-            
-            # 注意：邀请好友功能尚未完全实现，仅保留界面元素
-            # 原代码已被注释掉
-            """
-            原邀请文本：
-            
-            <b>👥 邀请好友</b>
-
-            每邀请一位新用户加入社群，您将获得<b>30积分</b>奖励！
-
-            <b>邀请方式：</b>
-            1. 将机器人分享给您的好友
-            2. 让好友发送 /start 命令
-            3. 好友成功注册后，您将自动获得奖励
-
-            <b>邀请优势：</b>
-            • 邀请人数越多，奖励越丰厚
-            • 特定活动期间邀请好友可获得双倍奖励
-            • 邀请10位以上好友可获得专属徽章
-
-            <i>注：每个用户只能被邀请一次，重复邀请不计入奖励</i>
-            """
-            
-            # 简化的提示信息，告知用户功能未实现
-            await query.message.reply_text(
-                "<b>👥 邀请好友</b>\n\n此功能正在开发中，即将上线。",
-                parse_mode=ParseMode.HTML,
-                reply_markup=get_main_keyboard()
-            )
         
         else:
             await query.answer("未知的操作")
@@ -784,11 +668,9 @@ def main() -> None:
         # 尝试不同可能的会话目录
         session_dirs = [
             os.path.join(home_dir, ".telegram-bot-api"),  # 标准目录
-            os.path.join(os.getenv('APPDATA'), "telegram-bot-api") if platform.system() == "Windows" else None  # Windows目录
+            os.path.join(home_dir, ".cache", "python-telegram-bot"),  # Linux/Mac缓存目录
+            os.path.join(os.environ.get("LOCALAPPDATA", ""), "python-telegram-bot")  # Windows应用数据目录
         ]
-        
-        # 过滤掉None值
-        session_dirs = [d for d in session_dirs if d]
         
         for session_dir in session_dirs:
             if os.path.exists(session_dir):
@@ -891,15 +773,7 @@ def main() -> None:
             sys.exit(1)
         
         # 创建应用
-        # 设置更长的连接超时时间
-        request = HTTPXRequest(connection_pool_size=8, read_timeout=30.0, write_timeout=30.0, connect_timeout=30.0)
-        application = Application.builder().token(config.BOT_TOKEN).request(request).build()
-        
-        # 初始化存储对象并添加到application.bot_data中
-        from coser_bot.database.storage import Storage
-        storage_obj = Storage()
-        application.bot_data["storage"] = storage_obj
-        logger.info("存储对象已初始化并添加到application.bot_data中")
+        application = Application.builder().token(config.BOT_TOKEN).build()
         
         # 注册处理器
         # 基本命令
@@ -962,7 +836,7 @@ def main() -> None:
         # 添加定时任务
         job_queue = application.job_queue
         # 每6小时同步一次群组成员
-        job_queue.run_repeating(callback=sync_group_members, interval=21600, first=10)
+        job_queue.run_repeating(sync_group_members, interval=21600)
         
         # 添加数据库备份定时任务
         from coser_bot.utils.backup import schedule_backup
@@ -987,7 +861,7 @@ def main() -> None:
             # 首先尝试获取更新ID，找出最大值
             offset = 0
             try:
-                with httpx.Client(timeout=30.0) as client:  # 增加超时时间到30秒
+                with httpx.Client(timeout=10.0) as client:
                     response = client.post(
                         f"https://api.telegram.org/bot{bot_token}/getUpdates",
                         data={"timeout": 1}
